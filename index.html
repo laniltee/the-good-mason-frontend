@@ -1,464 +1,222 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>Restaurants / Menu / Chefs</title>
-    <link rel="stylesheet" type="text/css" href="build/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="build/semantic.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script>
-    $(document)
-        .ready(function() {
-
-            // fix main menu to page on passing
-            $('.main.menu').visibility({
-                type: 'fixed'
-            });
-            $('.overlay').visibility({
-                type: 'fixed',
-                offset: 80
-            });
-
-            // lazy load images
-            $('.image').visibility({
-                type: 'image',
-                transition: 'vertical flip in',
-                duration: 500
-            });
-
-            // show dropdown on hover
-            $('.main.menu  .ui.dropdown').dropdown({
-                on: 'hover'
-            });
-
-            $('.ui.dropdown')
-                .dropdown();
-        });
-    </script>
-    <style type="text/css">
-    body {
-        background-color: #FFFFFF;
-    }
-
-    .main.container {
-        margin-top: 2em;
-    }
-
-    .main.menu {
-        margin-top: 4em;
-        border-radius: 0;
-        border: none;
-        box-shadow: none;
-        transition: box-shadow 0.5s ease,
-        padding 0.5s ease;
-    }
-
-    .main.menu .item img.logo {
-        margin-right: 1.5em;
-    }
-
-    .overlay {
-        float: left;
-        margin: 0em 3em 1em 0em;
-    }
-
-    .overlay .menu {
-        position: relative;
-        left: 0;
-        transition: left 0.5s ease;
-    }
-
-    .main.menu.fixed {
-        background-color: #FFFFFF;
-        border: 1px solid #DDD;
-        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .overlay.fixed .menu {
-        left: 800px;
-    }
-
-    .text.container .left.floated.image {
-        margin: 2em 2em 2em -4em;
-    }
-
-    .text.container .right.floated.image {
-        margin: 2em -4em 2em 2em;
-    }
-
-    .ui.footer.segment {
-        margin: 5em 0em 0em;
-        padding: 5em 0em;
-    }
-
-    .button-icon {
-        margin-right: 6px;
-    }
-    </style>
-</head>
-
-<body>
-    <div class="ui borderless main menu">
-        <div class="ui container">
+   <head>
+      <title>Honda Baas</title>
+      <link rel="stylesheet" type="text/css" href="build/semantic.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+      <script src="build/semantic.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+      <script>
+         $(document)
+             .ready(function() {
+         
+                 // fix main menu to page on passing
+                 $('.main.menu').visibility({
+                     type: 'fixed'
+                 });
+                 $('.overlay').visibility({
+                     type: 'fixed',
+                     offset: 80
+                 });
+         
+                 // lazy load images
+                 $('.image').visibility({
+                     type: 'image',
+                     transition: 'vertical flip in',
+                     duration: 500
+                 });
+         
+                 // show dropdown on hover
+                 $('.main.menu  .ui.dropdown').dropdown({
+                     on: 'hover'
+                 });
+         
+                 $('.ui.dropdown')
+                     .dropdown();
+             });
+      </script>
+      <style type="text/css">
+         body {
+         background-color: #FFFFFF;
+         }
+         .main.container {
+         margin-top: 2em;
+         }
+         .main.menu {
+         margin-top: 4em;
+         border-radius: 0;
+         border: none;
+         box-shadow: none;
+         transition: box-shadow 0.5s ease,
+         padding 0.5s ease;
+         }
+         .main.menu .item img.logo {
+         margin-right: 1.5em;
+         }
+         .overlay {
+         float: left;
+         margin: 0em 3em 1em 0em;
+         }
+         .overlay .menu {
+         position: relative;
+         left: 0;
+         transition: left 0.5s ease;
+         }
+         .main.menu.fixed {
+         background-color: #FFFFFF;
+         border: 1px solid #DDD;
+         box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+         }
+         .overlay.fixed .menu {
+         left: 800px;
+         }
+         .text.container .left.floated.image {
+         margin: 2em 2em 2em -4em;
+         }
+         .text.container .right.floated.image {
+         margin: 2em -4em 2em 2em;
+         }
+         .ui.footer.segment {
+         margin: 5em 0em 0em;
+         padding: 5em 0em;
+         }
+         .button-icon {
+         margin-right: 6px;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="ui borderless main menu">
+         <div class="ui container">
             <div href="#" class="header item">
-                <img class="logo" src="images/p.png">Chefs
+               <img class="logo" src="images/logopl.png">Logo_Goes_Here
             </div>
-            <a href="#" class="item">Our Work</a>
-            <a href="#" class="item">How We Help?</a>
             <a href="#" class="ui right floated dropdown item">
-               Find a Chef <i class="dropdown icon"></i>
+            <a onclick="$('#add-new-profile').modal('show');" class="item"><i class="marker icon"></i>Near Me</a>
+            </a>
+         </div>
+      </div>
+      <div class="ui center aligned container">
+         <img src="images/logopl.png">
+         <h1 class="ui header">Search Our Database</h1>
+         <p>Looking for someone ?</p>
+         <div class="ui search">
+            <div class="ui icon input">
+               <input class="prompt" type="text" placeholder="Search service providers .. .." style="width: 600px; height: 40px">
+               <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+         </div>
+         <p></p>
+         <span>
+            Show me service providers who are
+            <div class="ui inline dropdown">
+               <div class="text">
+                  <img class="ui avatar image" src="/images/avatar/small/jenny.jpg">
+                  Jenny Hess
+               </div>
+               <i class="dropdown icon"></i>
                <div class="menu">
-                  <div class="ui icon search input">
-                     <i class="search icon"></i>
-                     <input type="text" placeholder="Search Restaurants ...">
+                  <div class="item">
+                     <img class="ui avatar image" src="images/trowel.png">
+                     Jenny Hess
                   </div>
-                  <div class="scrolling menu">
-                     <div class="item">
-                        <div class="ui red empty circular label"></div>
-                        Front End
-                     </div>
-                     <div class="item">
-                        <div class="ui blue empty circular label"></div>
-                        Back End
-                     </div>
-                     <div class="item">
-                        <div class="ui black empty circular label"></div>
-                        Cloud
-                     </div>
-                     <div class="item">
-                        <div class="ui purple empty circular label"></div>
-                        Mobile
-                     </div>
-                     <div class="item">
-                        <div class="ui orange empty circular label"></div>
-                        Automation
-                     </div>
-                     <div class="item">
-                        <div class="ui empty circular label"></div>
-                        Data Science
-                     </div>
-                     <div class="item">
-                        <div class="ui yellow empty circular label"></div>
-                        CI
-                     </div>
-                     <div class="item">
-                        <div class="ui teal empty circular label"></div>
-                        EBP
-                     </div>
+                  <div class="item">
+                     <img class="ui avatar image" src="images/trowel.png">
+                     Elliot Fu
+                  </div>
+                  <div class="item">
+                     <img class="ui avatar image" src="images/trowel.png">
+                     Stevie Feliciano
+                  </div>
+                  <div class="item">
+                     <img class="ui avatar image" src="images/trowel.png">
+                     Christian
+                  </div>
+                  <div class="item">
+                     <img class="ui avatar image" src="images/trowel.png">
+                     Matt
+                  </div>
+                  <div class="item">
+                     <img class="ui avatar image" src="images/trowel.png">
+                     Justen Kitsune
                   </div>
                </div>
-               <a onclick="$('#add-new-profile').modal('show');" class="item"><i class="plus icon"></i>New Chef</a>
-            </a>
-        </div>
-    </div>
-    <div class="ui center aligned container">
-        <h1 class="ui header">Meet Our Team</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <div class="ui three statistics" style="margin-bottom: 0px">
-            <div class="statistic animated flipInX">
-                <div class="value">
-                    8
-                </div>
-                <div class="label">
-                    Restaurants
-                </div>
             </div>
-            <div class="statistic animated flipInX">
-                <div class="value">
-                    <i class="food icon"></i> 12
-                </div>
-                <div class="label">
-                    Menus
-                </div>
+         </span>
+         <h1></h1>
+         <div class="ui five statistics">
+            <div class="statistic">
+               <div class="">
+                  <img src="images/trowel.png" class="ui inline image">
+               </div>
+               <div class="label">
+                  බිත්තියක් බඳිමුද
+               </div>
             </div>
-            <div class="statistic animated flipInX">
-                <div class="value" id="team-count">
-                    20
-                </div>
-                <div class="label">
-                    Chefs
-                </div>
+            <div class="statistic">
+               <div class="">
+                  <img src="images/carpenter.png" class="ui inline image">
+               </div>
+               <div class="label">
+                  මේසයක් පුටුවක් හදන්න
+               </div>
             </div>
-        </div>
-    </div>
-    <!--     <div class="ui container center">
-        <button class="ui red basic button">Spring</button>
-        <button class="ui orange basic button">Java</button>
-        <button class="ui yellow basic button">NodeJS</button>
-        <button class="ui olive basic button">UI / UX</button>
-        <button class="ui green basic button">ReactJS</button>
-        <button class="ui teal basic button">AWS</button>
-        <button class="ui blue basic button">BitSize</button>
-        <button class="ui violet basic button">Kotlin</button>
-        <button class="ui purple basic button">Swift</button>
-        <button class="ui pink basic button">Android</button>
-        <button class="ui brown basic button">Selenium</button>
-        <button class="ui grey basic button">Data</button>
-        <button class="ui black basic button">Sonar</button>
-    </div> -->
-    <div class="ui container centered grid" style="margin-bottom: 0px">
-        <div class="ui red basic button dropdown"><i class="desktop icon"></i> Front End
-            <div class="menu">
-                <div class="header">
-                    <i class="food icon"></i> Chefs by menu
-                </div>
-                <div class="item">
-                    <i class="television icon"></i>UI / UX
-                </div>
-                <div class="item">
-                    <i class="html5 icon"></i>ReactJS
-                </div>
+            <div class="statistic">
+               <div class="">
+                  <img src="images/broken-cable.png" class="ui inline image">
+               </div>
+               <div class="label">
+                  වයර් ශෝට් එකක්
+               </div>
             </div>
-        </div>
-        <div class="ui blue basic button dropdown"><i class="server icon"></i> Back End
-            <div class="menu">
-                <div class="header">
-                    <i class="food icon"></i> Chefs by menu
-                </div>
-                <div class="item">
-                    Java
-                </div>
-                <div class="item">
-                    Spring
-                </div>
-                <div class="item">
-                    NodeJS
-                </div>
+            <div class="statistic">
+               <div class="">
+                  <img src="images/pipe.png" class="ui inline image">
+               </div>
+               <div class="label">
+                  වතුර ලීක් නම්
+               </div>
             </div>
-        </div>
-        <div class="ui black basic button dropdown"><i class="cloud icon"></i> Cloud
-            <div class="menu">
-                <div class="header">
-                    <i class="food icon"></i> Chefs by menu
-                </div>
-                <div class="item">
-                    <i class="amazon icon"></i>AWS Aurora
-                </div>
-                <div class="item">
-                    <i class="server icon"></i>BiteSize
-                </div>
+            <div class="statistic">
+               <div class="">
+                  <img src="images/brush.png" class="ui inline image">
+               </div>
+               <div class="label">
+                  පේන්ට් වැඩ වලට
+               </div>
             </div>
-        </div>
-        <div class="ui purple basic button dropdown"><i class="tablet icon"></i> Mobile
-            <div class="menu">
-                <div class="header">
-                    <i class="food icon"></i> Chefs by menu
-                </div>
-                <div class="item">
-                    <i class="android icon"></i>Kotlin
-                </div>
-                <div class="item">
-                    <i class="android icon"></i>Android
-                </div>
-                <div class="item">
-                    <i class="server icon"></i>Swift
-                </div>
+         </div>
+      </div>
+      <div class="ui inverted vertical footer segment">
+         <div class="ui container">
+            <div class="ui stackable inverted divided equal height stackable grid">
+               <div class="three wide column">
+                  <h4 class="ui inverted header">About</h4>
+                  <div class="ui inverted link list">
+                     <a href="#" class="item">Sitemap</a>
+                     <a href="#" class="item">Contact Us</a>
+                     <a href="#" class="item">Religious Ceremonies</a>
+                     <a href="#" class="item">Gazebo Plans</a>
+                  </div>
+               </div>
+               <div class="three wide column">
+                  <h4 class="ui inverted header">Services</h4>
+                  <div class="ui inverted link list">
+                     <a href="#" class="item">Banana Pre-Order</a>
+                     <a href="#" class="item">DNA FAQ</a>
+                     <a href="#" class="item">How To Access</a>
+                     <a href="#" class="item">Favorite X-Men</a>
+                  </div>
+               </div>
+               <div class="seven wide column">
+                  <h4 class="ui inverted header">Footer Header</h4>
+                  <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+               </div>
             </div>
-        </div>
-        <div class="ui orange basic button dropdown"><i class="settings icon"></i> Automation
-            <div class="menu">
-                <div class="header">
-                    <i class="food icon"></i> Chefs by menu
-                </div>
-                <div class="item">
-                    <i class="line chart icon"></i>Selenium
-                </div>
-            </div>
-        </div>
-        <button class="ui teal basic button"><i class="database icon"></i> Data Science</button>
-        <button class="ui yellow basic button"><i class="git icon"></i> CI / CD</button>
-        <div class="ui teal basic button dropdown"><i class="bar chart icon"></i> EBP
-            <div class="menu">
-                <div class="header">
-                    <i class="food icon"></i> Chefs by menu
-                </div>
-                <div class="item">
-                    <i class="line chart icon"></i>Sonar Qube
-                </div>
-                <div class="item">
-                    <i class="line chart icon"></i>Continous Integration / Deployment
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--     <div class="ui four column grid container">
-        <div class="column">
-            <div class="ui raised segment">
-                <a class="ui red ribbon label">Front End</a>
-                <span>Account Details</span>
-                <p></p>
-                <a class="ui green ribbon label">Data Science</a> User Reviews
-                <p></p>
-            </div>
-        </div>
-        <div class="column">
-            <div class="ui raised segment">
-                <a class="ui blue ribbon label">Back End</a>
-                <span>Account Details</span>
-                <p></p>
-                <a class="ui yellow ribbon label">CI / CD</a> User Reviews
-                <p></p>
-            </div>
-        </div>
-        <div class="column">
-            <div class="ui segment">
-                <a class="ui black right ribbon label">Cloud</a>
-                <p></p>
-                <a class="ui teal right ribbon label">EBP</a>
-                <p></p>
-            </div>
-        </div>
-        <div class="column">
-            <div class="ui segment">
-                <a class="ui orange right ribbon label">Automation</a>
-                <p></p>
-                <a class="ui purple right ribbon label">Mobile</a>
-                <p></p>
-            </div>
-        </div>
-    </div> -->
-    <!--     <div class="ui borderless main menu"></div> -->
-    <div class="ui four column doubling stackable grid container animated slideInUp" ng-app="myApp" ng-controller="myCtrl">
-        <div class="column" ng-repeat="profile in allProfiles">
-            <p><img style="height: 150px" class="ui centered small circular image" src="{{(profile.imageUrl == null || profile.imageUrl == '') ?  'images/man.png' : 'http://smartflashcardsapi.stg-prsn.com/api/images/' + profile.imageUrl}}" alt="profile.fullName" onclick="$('#profile-popup').modal('show');changeActiveProfile(profile.id)"></p>
-            <h3 class="ui header centered">
-               {{profile.fullName}}
-               <div class="sub header" style="margin-bottom: 6px">{{profile.email}}</div>
-
-               <div class="ui {{getRestColor(profile.designation)}} label ">
-    <i class="food icon"></i> {{profile.designation}}
-</div>
-            </h3>
-            <div class="description">
-            </div>
-            <!--             <div class="ui label">
-                <i class="student icon"></i> 23
-                <a class="detail">Projects</a>
-            </div>
-            <div class="ui label right floated">
-                <i class="users icon"></i> 230
-                <a class="detail">Students</a>
-            </div> -->
-            <p class="ui">
-                <p>
-                    <a class="ui {{getRandomColor()}} label basic" ng-repeat="area in profile.interestedAreas.split(',')" style="margin-bottom: 4px">
-               {{area}}
-               </a>
-                </p>
-        </div>
-        <!--PROFILE POPUP-->
-        <div class="ui modal" id="profile-popup">
-            <div class="header">
-                Profile Picture {{activeProfile}}
-            </div>
-            <div class="image content">
-                <div class="ui medium image">
-                    <img src="images/man.png">
-                </div>
-                <div class="description">
-                    <div class="ui header">We've auto-chosen a profile image for you.</div>
-                    <p>We've some projects for you <a href="https://www.gravatar.com" target="_blank">gravatar</a> You can join with us.</p>
-                    <p>Is it okay to use this photo?</p>
-                </div>
-            </div>
-            <div class="actions">
-                <div class="ui black deny button">
-                    Nope
-                </div>
-                <div class="ui positive right labeled icon button">
-                    Contact Mr
-                    <i class="checkmark icon"></i>
-                </div>
-            </div>
-        </div>
-        <!--PROFILE POPUP END-->
-    </div>
-    <!--ADD NEW PROFILE POPUP-->
-    <div class="ui modal" id="add-new-profile">
-        <div class="header">
-            We Have A New Chef !
-        </div>
-        <div class="image content">
-            <div class="ui medium image">
-                <img src="images/man.png" id="profile-img-select" style="margin-bottom: 5px">
-                <input type="file" name="" id="profile-img-input">
-            </div>
-            <div class="description" style="width: 740px">
-                <form class="ui form">
-                    <div class="field">
-                        <label>Chef Name</label>
-                        <div class="field">
-                            <div class="field">
-                                <input type="text" id="first-name-in" placeholder="Full Name" onChange="buildUserEmail(this)">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label>Restaurant</label>
-                        <select name="skills" class="ui fluid dropdown" id="designation-in">
-                            <option value="">Restaurant</option>
-                            <option value="Front End">Any</option>
-                            <option value="Back End">Back End</option>
-                            <option value="Front End">Front End</option>
-                            <option value="Cloud">Cloud</option>
-                            <option value="Mobile">Mobile</option>
-                            <option value="Automation">Automation</option>
-                            <option value="Data Science">Data Science</option>
-                            <option value="CI / CD">Continous Integration / Deployment</option>
-                            <option value="EBP">EBP</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label>Menus</label>
-                        <select name="skills" multiple="" class="ui fluid dropdown" id="areas-in">
-                            <option value="">Menus</option>
-                            <option value="UI / UX">UI / UX</option>
-                            <option value="ReactJS">ReactJS</option>
-                            <option value="Spring">Spring</option>
-                            <option value="Java">Java</option>
-                            <option value="NodeJS">NodeJS</option>
-                            <option value="AWS">AWS</option>
-                            <option value="Bite Size">Bite Size</option>
-                            <option value="Kotlin">Kotlin</option>
-                            <option value="Swift">Swift</option>
-                            <option value="Android">Android</option>
-                            <option value="Selenium">Selenium</option>
-                            <option value="Sonar">Sonar</option>
-                            <option value="Any">Any</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label>Email</label>
-                        <div class="field">
-                            <div class="field">
-                                <input type="text" id="email-in" placeholder="john.doe@pearson.com">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label>Contact</label>
-                        <div class="field">
-                            <div class="field">
-                                <input type="text" id="contact-in" placeholder="65-2445">
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="actions">
-            <div class="ui black deny button">
-                Cancel
-            </div>
-            <div class="ui positive right labeled icon button" onclick="addNewSupervisor()">
-                <span id="msg-add">Add New Profile</span>
-                <i class="checkmark icon"></i>
-            </div>
-        </div>
-    </div>
-    <!--ADD NEW PROFILE POPUP END-->
-    <script src="scripts/script.js"></script>
-    <script src="scripts/ang.js"></script>
-</body>
+         </div>
+      </div>
+      <script src="scripts/script.js"></script>
+      <script src="scripts/ang.js"></script>
+   </body>
