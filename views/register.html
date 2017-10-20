@@ -1,0 +1,61 @@
+<div class="ui center aligned container animated bounce">
+    <img src="images/brick-wall.png">
+    <h1 class="ui header">Register Today</h1>
+    <p>To make you travel hassle free</p>
+    <h1></h1>
+</div>
+<div class="ui text container animated fadeInLeft">
+    <form class="ui form">
+        <h4 class="ui dividing header">Personal Information</h4>
+        <div class="field">
+            <label>Name</label>
+            <div class="two fields">
+                <div class="field">
+                    <input type="text" name="shipping[first-name]" ng-model="User.firstName" placeholder="First Name">
+                </div>
+                <div class="field">
+                    <input type="text" name="shipping[last-name]" ng-model="User.lastName" placeholder="Last Name">
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label>Email & Contact Number</label>
+            <div class="two fields">
+                <div class="field">
+                    <input type="text" ng-model="User.email" name="shipping[first-name]" placeholder="Email">
+                </div>
+                <div class="field">
+                    <input type="text" ng-model="User.contact" name="shipping[last-name]" placeholder="Contact No">
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label>Nearest Location</label>
+            <div class="fields">
+                <div class="twelve wide field">
+                    <input type="text" ng-model="User.location" name="shipping[address]" placeholder="City">
+                </div>
+                <div class="four wide field">
+                    <input type="text" name="shipping[address-2]" placeholder="Town">
+                </div>
+            </div>
+        </div>
+        <h4 class="ui dividing header">Account Information</h4>
+        <div class="field">
+            <label>Account Type</label>
+            <div class="ui buttons">
+                <button class="ui button" ng-click="User.type = 'user'">User Account</button>
+                <div class="or"></div>
+                <button class="ui positive button" ng-click="User.type = 'provider'">Service Provider Account</button>
+            </div>
+        </div>
+         <div class="field">
+            <label>Account Password</label>
+            <div class="six wide field">
+                <input type="password" ng-model="User.password" name="shipping[address]" placeholder="Password">
+            </div>
+        </div>
+        <h4 class="ui dividing header">Create Account</h4>
+        <button class="ui button" ng-click="createUser()">Submit</button>
+    </form>
+</div>
