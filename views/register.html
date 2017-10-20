@@ -11,10 +11,10 @@
             <label>Name</label>
             <div class="two fields">
                 <div class="field">
-                    <input type="text" name="shipping[first-name]" placeholder="First Name">
+                    <input type="text" name="shipping[first-name]" ng-model="User.firstName" placeholder="First Name">
                 </div>
                 <div class="field">
-                    <input type="text" name="shipping[last-name]" placeholder="Last Name">
+                    <input type="text" name="shipping[last-name]" ng-model="User.lastName" placeholder="Last Name">
                 </div>
             </div>
         </div>
@@ -22,10 +22,10 @@
             <label>Email & Contact Number</label>
             <div class="two fields">
                 <div class="field">
-                    <input type="text" name="shipping[first-name]" placeholder="Email">
+                    <input type="text" ng-model="User.email" name="shipping[first-name]" placeholder="Email">
                 </div>
                 <div class="field">
-                    <input type="text" name="shipping[last-name]" placeholder="Contact No">
+                    <input type="text" ng-model="User.contact" name="shipping[last-name]" placeholder="Contact No">
                 </div>
             </div>
         </div>
@@ -33,10 +33,10 @@
             <label>Nearest Location</label>
             <div class="fields">
                 <div class="twelve wide field">
-                    <input type="text" name="shipping[address]" placeholder="Street Address">
+                    <input type="text" ng-model="User.location" name="shipping[address]" placeholder="City">
                 </div>
                 <div class="four wide field">
-                    <input type="text" name="shipping[address-2]" placeholder="Apt #">
+                    <input type="text" name="shipping[address-2]" placeholder="Town">
                 </div>
             </div>
         </div>
@@ -44,12 +44,18 @@
         <div class="field">
             <label>Account Type</label>
             <div class="ui buttons">
-                <button class="ui button">User Account</button>
+                <button class="ui button" ng-click="User.type = 'user'">User Account</button>
                 <div class="or"></div>
-                <button class="ui positive button">Service Provider Account</button>
+                <button class="ui positive button" ng-click="User.type = 'provider'">Service Provider Account</button>
+            </div>
+        </div>
+         <div class="field">
+            <label>Account Password</label>
+            <div class="six wide field">
+                <input type="password" ng-model="User.password" name="shipping[address]" placeholder="Password">
             </div>
         </div>
         <h4 class="ui dividing header">Create Account</h4>
-        <button class="ui button" type="submit">Submit</button>
+        <button class="ui button" ng-click="createUser()">Submit</button>
     </form>
 </div>

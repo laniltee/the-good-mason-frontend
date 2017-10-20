@@ -1,220 +1,205 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>Honda Baas</title>
-    <link rel="stylesheet" type="text/css" href="build/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="build/semantic.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <!--Our Angular Files-->
-    <script src="app.js"></script>
-    <script src="controllers/home.controller.js"></script>
-    <script src="controllers/register.controller.js"></script>
-    <script src="controllers/user.controller.js"></script>
-    <script>
-    $(document)
-        .ready(function() {
-
-            // fix main menu to page on passing
-            $('.main.menu').visibility({
-                type: 'fixed'
-            });
-            $('.overlay').visibility({
-                type: 'fixed',
-                offset: 80
-            });
-
-            // lazy load images
-            $('.image').visibility({
-                type: 'image',
-                transition: 'vertical flip in',
-                duration: 500
-            });
-
-            // show dropdown on hover
-            $('.main.menu  .ui.dropdown').dropdown({
-                on: 'hover'
-            });
-
-            $('.ui.modal')
-                .modal();
-
-            $('.ui.dropdown')
-                .dropdown();
-        });
-    </script>
-    <style type="text/css">
-    body {
-        background-color: #FFFFFF;
-    }
-
-    .div.card{
-        width: 200px;
-    }
-
-    .main.container {
-        margin-top: 2em;
-    }
-
-    .main.menu {
-        margin-top: 4em;
-        border-radius: 0;
-        border: none;
-        box-shadow: none;
-        transition: box-shadow 0.5s ease,
-        padding 0.5s ease;
-    }
-
-    .main.menu .item img.logo {
-        margin-right: 1.5em;
-    }
-
-    .overlay {
-        float: left;
-        margin: 0em 3em 1em 0em;
-    }
-
-    .overlay .menu {
-        position: relative;
-        left: 0;
-        transition: left 0.5s ease;
-    }
-
-    .main.menu.fixed {
-        background-color: #FFFFFF;
-        border: 1px solid #DDD;
-        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .overlay.fixed .menu {
-        left: 800px;
-    }
-
-    .text.container .left.floated.image {
-        margin: 2em 2em 2em -4em;
-    }
-
-    .text.container .right.floated.image {
-        margin: 2em -4em 2em 2em;
-    }
-
-    .ui.footer.segment {
-        margin: 5em 0em 0em;
-        padding: 5em 0em;
-    }
-
-    .button-icon {
-        margin-right: 6px;
-    }
-    </style>
-</head>
-
-<body ng-app="myApp">
-    <div class="ui borderless main menu">
-        <div class="ui container">
+   <head>
+      <title>Honda Baas</title>
+      <link rel="stylesheet" type="text/css" href="build/semantic.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+      <script src="build/semantic.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+      <!--Our Angular Files-->
+      <script src="app.js"></script>
+      <script src="services/users.service.js"></script>
+      <script src="controllers/home.controller.js"></script>
+      <script src="controllers/register.controller.js"></script>
+      <script src="controllers/user.controller.js"></script>
+      <script>
+         $(document)
+             .ready(function() {
+         
+                 // fix main menu to page on passing
+                 $('.main.menu').visibility({
+                     type: 'fixed'
+                 });
+                 $('.overlay').visibility({
+                     type: 'fixed',
+                     offset: 80
+                 });
+         
+                 // lazy load images
+                 $('.image').visibility({
+                     type: 'image',
+                     transition: 'vertical flip in',
+                     duration: 500
+                 });
+         
+                 // show dropdown on hover
+                 $('.main.menu  .ui.dropdown').dropdown({
+                     on: 'hover'
+                 });
+         
+                 $('.ui.modal')
+                     .modal();
+         
+                 $('.ui.dropdown')
+                     .dropdown();
+             });
+      </script>
+      <style type="text/css">
+         body {
+         background-color: #FFFFFF;
+         }
+         .div.card{
+         width: 200px;
+         }
+         .main.container {
+         margin-top: 2em;
+         }
+         .main.menu {
+         margin-top: 4em;
+         border-radius: 0;
+         border: none;
+         box-shadow: none;
+         transition: box-shadow 0.5s ease,
+         padding 0.5s ease;
+         }
+         .main.menu .item img.logo {
+         margin-right: 1.5em;
+         }
+         .overlay {
+         float: left;
+         margin: 0em 3em 1em 0em;
+         }
+         .overlay .menu {
+         position: relative;
+         left: 0;
+         transition: left 0.5s ease;
+         }
+         .main.menu.fixed {
+         background-color: #FFFFFF;
+         border: 1px solid #DDD;
+         box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+         }
+         .overlay.fixed .menu {
+         left: 800px;
+         }
+         .text.container .left.floated.image {
+         margin: 2em 2em 2em -4em;
+         }
+         .text.container .right.floated.image {
+         margin: 2em -4em 2em 2em;
+         }
+         .ui.footer.segment {
+         margin: 5em 0em 0em;
+         padding: 5em 0em;
+         }
+         .button-icon {
+         margin-right: 6px;
+         }
+      </style>
+   </head>
+   <body ng-app="myApp">
+      <div class="ui borderless main menu">
+         <div class="ui container">
             <a href="#" class="header item">
-                <img class="logo" src="images/logopl.png">Logo_Goes_Here
+            <img class="logo" src="images/logopl.png">Logo_Goes_Here
             </a>
             <div class="right menu">
-                <a onclick="$('#add-new-profile').modal('show');" class="item"><i class="marker icon"></i>Near Me</a>
-                <a href="#register" class="item button basic">Sign Up</a>
-                <a href="#user" class="item button basic">My Account</a>
-                <a onclick="$('.ui.mini.modal').modal('show');" class="item">Log In</a>
+               <a onclick="$('#add-new-profile').modal('show');" class="item"><i class="marker icon"></i>Near Me</a>
+               <a href="#register" class="item button basic">Sign Up</a>
+               <a href="#user" class="item button basic">My Account</a>
+               <a onclick="$('.ui.mini.modal').modal('show');" class="item">Log In</a>
             </div>
-        </div>
-    </div>
-    <div ng-view>
-    </div>
-    <div class="ui inverted vertical footer segment">
-        <div class="ui container">
+         </div>
+      </div>
+      <div ng-view>
+      </div>
+      <div class="ui inverted vertical footer segment">
+         <div class="ui container">
             <div class="ui stackable inverted divided equal height stackable grid">
-                <div class="three wide column">
-                    <h4 class="ui inverted header">About</h4>
-                    <div class="ui inverted link list">
-                        <a href="" onclick="$('#FeedbackModal').modal('show');" class="item">Give Feedback</a>
-                        <a href="#" class="item">Contact Us</a>
-                        <a href="#" class="item">Religious Ceremonies</a>
-                        <a href="#" class="item">Gazebo Plans</a>
-                    </div>
-                </div>
-                <div class="three wide column">
-                    <h4 class="ui inverted header">Services</h4>
-                    <div class="ui inverted link list">
-                        <a href="#" class="item">Banana Pre-Order</a>
-                        <a href="#" class="item">DNA FAQ</a>
-                        <a href="#" class="item">How To Access</a>
-                        <a href="#" class="item">Favorite X-Men</a>
-                    </div>
-                </div>
-                <div class="seven wide column">
-                    <h4 class="ui inverted header">Footer Header</h4>
-                    <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
-                </div>
+               <div class="three wide column">
+                  <h4 class="ui inverted header">About</h4>
+                  <div class="ui inverted link list">
+                     <a href="" onclick="$('#FeedbackModal').modal('show');" class="item">Give Feedback</a>
+                     <a href="#" class="item">Contact Us</a>
+                     <a href="#" class="item">Religious Ceremonies</a>
+                     <a href="#" class="item">Gazebo Plans</a>
+                  </div>
+               </div>
+               <div class="three wide column">
+                  <h4 class="ui inverted header">Services</h4>
+                  <div class="ui inverted link list">
+                     <a href="#" class="item">Banana Pre-Order</a>
+                     <a href="#" class="item">DNA FAQ</a>
+                     <a href="#" class="item">How To Access</a>
+                     <a href="#" class="item">Favorite X-Men</a>
+                  </div>
+               </div>
+               <div class="seven wide column">
+                  <h4 class="ui inverted header">Footer Header</h4>
+                  <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+               </div>
             </div>
-        </div>
-    </div>
-    <!--Feedback Model-->
-    <div class="ui modal" id="FeedbackModal">
-        <i class="close icon"></i>
-        <div class="header">
-            Modal Title
-        </div>
-        <div class="content">
+         </div>
+      </div>
+      <!--Feedback Model-->
+      <div class="ui modal" id="FeedbackModal" ng-controller="homeCtrl">
+         <i class="close icon"></i>
+         <div class="header">
+            User Feedback
+         </div>
+         <div class="content">
             <div class="ui form">
-                <h4 class="ui dividing header">What Do You Think ?</h4>
-                <div class="ui fluid three item menu">
-                    <a class="item">
-    <i class="thumbs outline up icon"></i>
-    Awesome
-  </a>
-                    <a class="item">
-    <i class="video camera icon"></i>
-    Good
-  </a>
-                    <a class="item">
-    <i class="thumbs outline down icon"></i>
-    Awful
-  </a>
-                </div>
-                <div class="field">
-                    <label>Feedback</label>
-                    <textarea></textarea>
-                </div>
-                <div class="field">
-                    <div class="ui checkbox">
-                        <input type="checkbox" checked="checked" name="contact-me" tabindex="0" class="hidden">
-                        <label>It's okay to contact me.</label>
-                    </div>
-                </div>
+               <h4 class="ui dividing header">What Do You Think ?</h4>
+               <div class="ui fluid three item menu">
+                  <a class="item" href="" ng-click="Feedback.rating = 'Awesome'">
+                  <i class="thumbs outline up icon"></i>
+                  Awesome
+                  </a>
+                  <a class="item" href="" ng-click="Feedback.rating = 'Good'">
+                  <i class="video camera icon"></i>
+                  Good
+                  </a>
+                  <a class="item" href="" ng-click="Feedback.rating = 'Awful'">
+                  <i class="thumbs outline down icon"></i>
+                  Awful
+                  </a>
+               </div>
+               <div class="field">
+                  <label>Feedback</label>
+                  <textarea ng-model="Feedback.description"></textarea>
+               </div>
             </div>
-        </div>
-        <div class="actions">
-            <div class="ui button">OK</div>
-        </div>
-    </div>
-    <!--LOGIN MODAL-->
-    <div class="ui mini modal">
-        <i class="close icon"></i>
-        <div class="header">
-            Modal Title
-        </div>
-        <div class="content">
+         </div>
+         <div class="actions">
+            <div class="ui button 
+            {{Feedback.rating == null || Feedback.description == '' ? 'disabled': 'positive'}} " 
+            ng-click="postFeedback()">Post Feedback</div>
+         </div>
+      </div>
+      <!--LOGIN MODAL-->
+      <div class="ui mini modal" ng-controller="homeCtrl">
+         <i class="close icon"></i>
+         <div class="header">
+            Log In
+         </div>
+         <div class="content">
             <form class="ui form">
-                <div class="field">
-                    <label>EMail</label>
-                    <input type="text" name="first-name" placeholder="First Name">
-                </div>
-                <div class="field">
-                    <label>Password</label>
-                    <input type="password" name="last-name" placeholder="Last Name">
-                </div>
+               <div class="field">
+                  <label>E - Mail</label>
+                  <input type="text" name="first-name" ng-model="Login.email" placeholder="Email">
+               </div>
+               <div class="field">
+                  <label>Password</label>
+                  <input type="password" ng-model="Login.password" name="last-name" placeholder="Password">
+               </div>
             </form>
-        </div>
-        <div class="actions">
-            <div class="ui button">Log In</div>
-        </div>
-    </div>
-</body>
+         </div>
+         <div class="actions">
+            <div class="ui button
+            {{Login.password == '' || Login.email == '' ? 'disabled': 'positive'}}" 
+            ng-click="logUserIn()"">Log In</div>
+         </div>
+      </div>
+   </body>
