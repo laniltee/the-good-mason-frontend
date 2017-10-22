@@ -1,7 +1,66 @@
-<div class="ui grid">
-  <div class="four wide column"></div>
-  <div class="four wide column"></div>
-  <div class="four wide column"></div>
-  <div class="four wide column"></div>
-
+<div class="ui center aligned container animated bounce">
+    <img src="images/search.png">
+    <h1 class="ui header">Search Results</h1>
+    <p>See whether people you need are here</p>
+    <h1></h1>
+</div>
+<div class="ui text container">
+    <div class="ui large celled animated list">
+        <div class="item">
+            <img class="ui image" src="images/usersearch.png">
+            <div class="content">
+                <div class="header">Sarath Gunathilake</div>
+                Carpenter
+            </div>
+            <div class="right floated content">
+                <div class="ui button" onclick="$('#providerProfile').modal('show');">View</div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="ui image" src="images/usersearch.png">
+            <div class="content">
+                <div class="header">Poodle</div>
+                Carpenter
+            </div>
+            <div class="right floated content">
+                <div class="ui button ">View</div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="ui image" src="images/usersearch.png">
+            <div class="content">
+                <div class="header">Paulo</div>
+                Carpenter
+            </div>
+            <div class="right floated content">
+                <div class="ui button ">View</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--service provider profile modal-->
+<div class="ui modal" id="providerProfile">
+    <i class="close icon"></i>
+    <div class="header">
+        Profile Picture
+    </div>
+    <div class="image content">
+        <div class="ui medium image">
+            <img src="../images/rachel.png">
+        </div>
+        <div class="description">
+            <div class="ui header">We've auto-chosen a profile image for you.</div>
+            <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+            <p>Is it okay to use this photo?</p>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui black deny button">
+            Nope
+        </div>
+        <div class="ui positive right labeled icon button">
+            Yep, that's me
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
 </div>

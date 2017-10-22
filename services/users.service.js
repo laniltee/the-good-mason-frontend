@@ -1,16 +1,13 @@
 app.service('usersService', function() {
 
-    var loggedUser = "sarath.perera@gmail.com";
     const API_PATH = "http://localhost:8081/api/";
-
-    this.IS_USER_LOGGED = true;
 
     this.myFunc = function(x) {
         return x.toString(16);
     }
 
     this.getLoggedUser = function() {
-        return loggedUser;
+        localStorage.getItem('loggedUser');
     }
 
     this.GET_API_PATH = function() {
@@ -18,6 +15,16 @@ app.service('usersService', function() {
     }
 
     this.setLoggedUser = function(loggedUserIn) {
-        loggedUser = loggedUserIn;
+        localStorage.setItem('loggedUser', loggedUserIn);
+        localStorage.setItem('IS_USER_LOGGED', true);
+    }
+
+    this.IS_USER_LOGGED = function() {
+        return localStorage.getItem('IS_USER_LOGGED');
+    }
+
+    this.logOutUser = function() {
+        localStorage.setItem('IS_USER_LOGGED', false);
+        localStorage.setItem('loggedUser', '');
     }
 });
