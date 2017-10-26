@@ -6,61 +6,34 @@
 </div>
 <div class="ui text container">
     <div class="ui large celled animated list">
-        <div class="item">
+        <div class="item" ng-repeat="result in searchResults">
             <img class="ui image" src="images/usersearch.png">
             <div class="content">
-                <div class="header">Sarath Gunathilake</div>
-                Carpenter
+                <div class="header">{{result.name}}</div>
+                {{searchMethod == "category" ? result.location : result.service}}
             </div>
             <div class="right floated content">
-                <div class="ui button" onclick="$('#providerProfile').modal('show');">View</div>
-            </div>
-        </div>
-        <div class="item">
-            <img class="ui image" src="images/usersearch.png">
-            <div class="content">
-                <div class="header">Poodle</div>
-                Carpenter
-            </div>
-            <div class="right floated content">
-                <div class="ui button ">View</div>
-            </div>
-        </div>
-        <div class="item">
-            <img class="ui image" src="images/usersearch.png">
-            <div class="content">
-                <div class="header">Paulo</div>
-                Carpenter
-            </div>
-            <div class="right floated content">
-                <div class="ui button ">View</div>
+                <a href="#/profile/{{result._id}}">
+                    <div class="ui button">View</div>
+                </a>
             </div>
         </div>
     </div>
-</div>
-<!--service provider profile modal-->
-<div class="ui modal" id="providerProfile">
-    <i class="close icon"></i>
-    <div class="header">
-        Profile Picture
-    </div>
-    <div class="image content">
-        <div class="ui medium image">
-            <img src="../images/rachel.png">
+    <div class="ui pagination menu">
+        <a class="active item">
+            1
+        </a>
+        <div class="disabled item">
+            ...
         </div>
-        <div class="description">
-            <div class="ui header">We've auto-chosen a profile image for you.</div>
-            <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-            <p>Is it okay to use this photo?</p>
-        </div>
-    </div>
-    <div class="actions">
-        <div class="ui black deny button">
-            Nope
-        </div>
-        <div class="ui positive right labeled icon button">
-            Yep, that's me
-            <i class="checkmark icon"></i>
-        </div>
+        <a class="item">
+            10
+        </a>
+        <a class="item">
+            11
+        </a>
+        <a class="item">
+            12
+        </a>
     </div>
 </div>

@@ -7,7 +7,7 @@ app.service('usersService', function() {
     }
 
     this.getLoggedUser = function() {
-        localStorage.getItem('loggedUser');
+        return localStorage.getItem('loggedUser');
     }
 
     this.GET_API_PATH = function() {
@@ -25,6 +25,7 @@ app.service('usersService', function() {
 
     this.logOutUser = function() {
         localStorage.setItem('IS_USER_LOGGED', false);
+        localStorage.removeItem('IS_USER_LOGGED');
         localStorage.setItem('loggedUser', '');
     }
 });

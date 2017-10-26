@@ -5,7 +5,8 @@
     <title>Honda Baas</title>
     <link rel="stylesheet" type="text/css" href="build/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
     <script src="build/semantic.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
@@ -15,101 +16,103 @@
     <script src="controllers/home.controller.js"></script>
     <script src="controllers/register.controller.js"></script>
     <script src="controllers/user.controller.js"></script>
+    <script src="controllers/search.controller.js"></script>
+    <script src="controllers/profile.controller.js"></script>
     <script>
-    $(document)
-        .ready(function() {
+        $(document)
+            .ready(function () {
 
-            // fix main menu to page on passing
-            $('.main.menu').visibility({
-                type: 'fixed'
+                // fix main menu to page on passing
+                $('.main.menu').visibility({
+                    type: 'fixed'
+                });
+                $('.overlay').visibility({
+                    type: 'fixed',
+                    offset: 80
+                });
+
+                // lazy load images
+                $('.image').visibility({
+                    type: 'image',
+                    transition: 'vertical flip in',
+                    duration: 500
+                });
+
+                // show dropdown on hover
+                $('.main.menu  .ui.dropdown').dropdown({
+                    on: 'hover'
+                });
+
+                $('.ui.modal')
+                    .modal();
+
+                $('.ui.dropdown')
+                    .dropdown();
             });
-            $('.overlay').visibility({
-                type: 'fixed',
-                offset: 80
-            });
-
-            // lazy load images
-            $('.image').visibility({
-                type: 'image',
-                transition: 'vertical flip in',
-                duration: 500
-            });
-
-            // show dropdown on hover
-            $('.main.menu  .ui.dropdown').dropdown({
-                on: 'hover'
-            });
-
-            $('.ui.modal')
-                .modal();
-
-            $('.ui.dropdown')
-                .dropdown();
-        });
     </script>
     <style type="text/css">
-    body {
-        background-color: #FFFFFF;
-    }
+        body {
+            background-color: #FFFFFF;
+        }
 
-    .div.card {
-        width: 200px;
-    }
+        .div.card {
+            width: 200px;
+        }
 
-    .main.container {
-        margin-top: 2em;
-    }
+        .main.container {
+            margin-top: 2em;
+        }
 
-    .main.menu {
-        margin-top: 4em;
-        border-radius: 0;
-        border: none;
-        box-shadow: none;
-        transition: box-shadow 0.5s ease,
-        padding 0.5s ease;
-    }
+        .main.menu {
+            margin-top: 4em;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            transition: box-shadow 0.5s ease,
+            padding 0.5s ease;
+        }
 
-    .main.menu .item img.logo {
-        margin-right: 1.5em;
-    }
+        .main.menu .item img.logo {
+            margin-right: 1.5em;
+        }
 
-    .overlay {
-        float: left;
-        margin: 0em 3em 1em 0em;
-    }
+        .overlay {
+            float: left;
+            margin: 0em 3em 1em 0em;
+        }
 
-    .overlay .menu {
-        position: relative;
-        left: 0;
-        transition: left 0.5s ease;
-    }
+        .overlay .menu {
+            position: relative;
+            left: 0;
+            transition: left 0.5s ease;
+        }
 
-    .main.menu.fixed {
-        background-color: #FFFFFF;
-        border: 1px solid #DDD;
-        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-    }
+        .main.menu.fixed {
+            background-color: #FFFFFF;
+            border: 1px solid #DDD;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+        }
 
-    .overlay.fixed .menu {
-        left: 800px;
-    }
+        .overlay.fixed .menu {
+            left: 800px;
+        }
 
-    .text.container .left.floated.image {
-        margin: 2em 2em 2em -4em;
-    }
+        .text.container .left.floated.image {
+            margin: 2em 2em 2em -4em;
+        }
 
-    .text.container .right.floated.image {
-        margin: 2em -4em 2em 2em;
-    }
+        .text.container .right.floated.image {
+            margin: 2em -4em 2em 2em;
+        }
 
-    .ui.footer.segment {
-        margin: 5em 0em 0em;
-        padding: 5em 0em;
-    }
+        .ui.footer.segment {
+            margin: 5em 0em 0em;
+            padding: 5em 0em;
+        }
 
-    .button-icon {
-        margin-right: 6px;
-    }
+        .button-icon {
+            margin-right: 6px;
+        }
     </style>
 </head>
 
@@ -117,10 +120,11 @@
     <div class="ui borderless main menu">
         <div class="ui container">
             <a href="#" class="header item">
-            <img class="logo" src="images/logopl.png">Logo_Goes_Here
+                <img class="logo" src="images/logopl.png">Logo_Goes_Here
             </a>
             <div class="right menu" ng-controller="homeCtrl">
-                <a ng-if="userLoggedIn" onclick="$('#add-new-profile').modal('show');" class="item"><i class="marker icon"></i>Near Me</a>
+                <a ng-if="userLoggedIn" onclick="$('#add-new-profile').modal('show');" class="item">
+                    <i class="marker icon"></i>Near Me</a>
                 <a ng-if="!userLoggedIn" href="#register" class="item button basic">Sign Up</a>
                 <a ng-if="userLoggedIn" href="#user" class="item button basic">My Account</a>
                 <a ng-if="!userLoggedIn" onclick="$('.ui.mini.modal').modal('show');" class="item">Log In</a>
@@ -169,22 +173,25 @@
                 <h4 class="ui dividing header">What Do You Think ?</h4>
                 <div class="ui fluid three item menu">
                     <a class="item" href="" ng-click="Feedback.rating = 'Awesome'">
-                  <i class="thumbs outline up icon"></i>
-                  Awesome
-                  </a>
+                        <i class="thumbs outline up icon"></i>
+                        Awesome
+                    </a>
                     <a class="item" href="" ng-click="Feedback.rating = 'Good'">
-                  <i class="video camera icon"></i>
-                  Good
-                  </a>
+                        <i class="video camera icon"></i>
+                        Good
+                    </a>
                     <a class="item" href="" ng-click="Feedback.rating = 'Awful'">
-                  <i class="thumbs outline down icon"></i>
-                  Awful
-                  </a>
+                        <i class="thumbs outline down icon"></i>
+                        Awful
+                    </a>
                 </div>
                 <div class="field">
                     <label>Feedback</label>
                     <textarea ng-model="Feedback.description"></textarea>
                 </div>
+
+                <div ng-if="!userLoggedIn" class="ui brown message">You have to log in before giving us a feedback. Please visit our log in page</div>
+
             </div>
         </div>
         <div class="actions">
@@ -211,12 +218,12 @@
                 <div ng-if="logInFailed" class="ui red message animated bounce">Username or Password is incorrect</div>
                 <div class="field">
                     <div class="ui fluid button
-            {{Login.password == '' || Login.email == '' ? 'disabled': 'positive'}}" ng-click="logUserIn()" ">Log In</div>
-               </div>
+            {{Login.password == '' || Login.email == '' ? 'disabled': 'positive'}}" ng-click="logUserIn()">Log In</div>
+                </div>
             </form>
-         </div>
-         <div class=" ">
-            
-         </div>
-      </div>
-   </body>
+        </div>
+        <div class=" ">
+
+        </div>
+    </div>
+</body>
