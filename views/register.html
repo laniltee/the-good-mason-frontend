@@ -5,16 +5,16 @@
     <h1></h1>
 </div>
 <div class="ui text container animated fadeInLeft">
-    <form class="ui form">
+    <form class="ui form" name="registerForm">
         <h4 class="ui dividing header">Personal Information</h4>
         <div class="field">
             <label>Name</label>
             <div class="two fields">
                 <div class="field">
-                    <input type="text" name="shipping[first-name]" ng-model="User.firstName" placeholder="First Name">
+                    <input type="text" name="first-name" ng-model="User.firstName" placeholder="First Name">
                 </div>
                 <div class="field">
-                    <input type="text" name="shipping[last-name]" ng-model="User.lastName" placeholder="Last Name">
+                    <input type="text" name="last-name" ng-model="User.lastName" placeholder="Last Name">
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                 <button class="ui positive button" ng-click="User.type = 'provider'">Service Provider Account</button>
             </div>
         </div>
-         <div class="field">
+        <div class="field">
             <label>Account Password</label>
             <div class="six wide field">
                 <input type="password" ng-model="User.password" name="shipping[address]" placeholder="Password">
@@ -57,5 +57,20 @@
         </div>
         <h4 class="ui dividing header">Create Account</h4>
         <button class="ui button" ng-click="createUser()">Submit</button>
+        <div class="ui form warning" style="margin-top: 14px" ng-if="formErrors.length > 0">
+            <div class="ui warning message">
+                <div class="header">Could you check something!</div>
+                <ul class="list">
+                    <li ng-repeat="error in formErrors">{{error}}</li>
+                </ul>
+            </div>
+        </div>
     </form>
+    <div class="ui success message" ng-if="userRegistered">
+        <i class="close icon"></i>
+        <div class="header">
+            Your user registration was successful.
+        </div>
+        <p>You may now log-in with the username you have chosen</p>
+    </div>
 </div>

@@ -23,7 +23,8 @@ app.controller("userCtrl", function ($scope, $http, usersService, $route) {
 
             });
         }
-
-
     }
+
+    // Form input validation functions
+    
 });

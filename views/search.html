@@ -5,6 +5,7 @@
     <h1></h1>
 </div>
 <div class="ui text container">
+    <div ng-if="searchResults.length == 0" class="ui brown message">There are no results</div>
     <div class="ui large celled animated list">
         <div class="item" ng-repeat="result in searchResults">
             <img class="ui image" src="images/usersearch.png">
@@ -18,22 +19,5 @@
                 </a>
             </div>
         </div>
-    </div>
-    <div class="ui pagination menu">
-        <a class="active item">
-            1
-        </a>
-        <div class="disabled item">
-            ...
-        </div>
-        <a class="item">
-            10
-        </a>
-        <a class="item">
-            11
-        </a>
-        <a class="item">
-            12
-        </a>
     </div>
 </div>

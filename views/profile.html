@@ -4,11 +4,11 @@
     <br>
     <div class="ui compact menu">
         <a class="item">
-            <i class="icon mail"></i> Recommend
+            <i class="icon pointing up"></i> Recommends
             <div class="floating ui red label">{{profile.recommends}}</div>
         </a>
         <a class="item">
-            <i class="icon users"></i> Report
+            <i class="icon pointing down"></i> Reports
             <div class="floating ui teal label">{{profile.reports}}</div>
         </a>
     </div>
@@ -57,63 +57,63 @@
             </div>
         </div>
         <div>
+            <h3 class="ui dividing header">To Do
+
+            </h3>
+            <button class="ui {{todo.quote ? 'disabled' : ''}} basic button" ng-click="todo.quote = true">
+                <i class="icon teal money"></i>
+                {{todo.quote ? 'Requested' : 'Request Price Quote'}}
+            </button>
+            <button class="ui {{todo.fav ? 'disabled' : ''}} basic button" ng-click="todo.fav = true">
+                <i class="icon heart red"></i>
+                {{todo.fav ? 'Added To Favorites' : 'Add To Favorites'}}
+            </button>
+        </div>
+        <div style="margin-top: 14px">
             <h3 class="ui dividing header">Compare
 
             </h3>
-            <div class="ui image label" ng-repeat="comp in competitors" ng-if="comp._id != profile._id" style="margin-left: 30px">
-                <img src="../images/usersearch.png"> {{comp.name}}
-                <div class="detail">{{comp.rate}}</div>
-            </div>
-
+            <a href="#profile/{{comp._id}}" ng-repeat="comp in competitors">
+                <div class="ui image label" ng-if="comp._id != profile._id" style="margin-left: 30px">
+                    <img src="../images/usersearch.png"> {{comp.name}}
+                    <div class="detail">{{comp.rate}}</div>
+                </div>
+            </a>
+            <div ng-if="competitors.length == 0" class="ui green message">Oh No Competitors</div>
 
         </div>
     </div>
     <div class="ui comments">
         <h3 class="ui dividing header">Comments
-            <a class="ui blue circular label">2</a>
+            <a class="ui blue circular label">{{comments.length}}</a>
         </h3>
-        <div class="comment">
+        <div class="comment" ng-repeat="comment in comments" ng-if="comment.comment">
             <a class="avatar">
-                <img src="/images/avatar/small/matt.jpg">
+                <img src="images/matt.jpg">
             </a>
             <div class="content">
-                <a class="author">Matt</a>
+                <a class="author">{{comment.user}}</a>
                 <div class="metadata">
-                    <span class="date">Today at 5:42PM</span>
+                    <span class="date">{{comment.date | date : "dd-MM-yyyy"}}</span>
                 </div>
                 <div class="text">
-                    How artistic!
+                    {{comment.comment}}
                 </div>
-                <div class="actions">
-                    <a class="reply">Reply</a>
+                <div class="actions" ng-if="comment.user == loggedUser">
+                    <a class="reply">Remove</a>
                 </div>
             </div>
         </div>
-        <div class="comment">
-            <a class="avatar">
-                <img src="/images/avatar/small/elliot.jpg">
-            </a>
-            <div class="content">
-                <a class="author">Elliot Fu</a>
-                <div class="metadata">
-                    <span class="date">Yesterday at 12:30AM</span>
-                </div>
-                <div class="text">
-                    <p>This has been very useful for my research. Thanks as well!</p>
-                </div>
-                <div class="actions">
-                    <a class="reply">Reply</a>
-                </div>
-            </div>
-        </div>
-
         <form class="ui reply form">
             <div class="field">
-                <textarea rows="2"></textarea>
+                <textarea ng-model="comment.comment" rows="2"></textarea>
             </div>
-            <div class="ui blue labeled submit icon button">
-                <i class="icon edit"></i> Add Reply
+            <div class="ui buttons">
+                <button ng-click="comment.rating = 'Report';postComment()" class="ui {{loggedUser == 'false' ? 'disabled': ''}} button">Comment & Report</button>
+                <div class="or"></div>
+                <button ng-click="comment.rating = 'Recommend';postComment()" class="ui {{loggedUser == 'false' ? 'disabled': ''}} positive button">Comment & Recommend</button>
             </div>
+            <div ng-if="loggedUser == 'false'" class="ui brown message">You have to log in before giving a comment. Please visit our log in page</div>
         </form>
     </div>
 </div>

@@ -8,8 +8,10 @@ app.controller("searchCtrl", function ($scope, $http, usersService, $routeParams
 
     if (searchLevel == "category") {
         searchUrl = usersService.GET_API_PATH() + "providers/services/" + searchKey;
-    } else {
+    } else if (searchLevel == "name") {
         searchUrl = usersService.GET_API_PATH() + "providers/search/name/" + searchKey;
+    } else if (searchLevel == "location") {
+        searchUrl = usersService.GET_API_PATH() + "providers/search/name/" + location;
     }
 
     $http.get(searchUrl).then(function (response) {
