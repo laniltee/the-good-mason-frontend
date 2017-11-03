@@ -5,12 +5,13 @@ app.controller("profileCtrl", function ($scope, $http, usersService, $routeParam
     $scope.postComment = postComment;
     $scope.isCompetitorsLoaded = false;
     $scope.competitorCount = 0;
+    $scope.addToDo = addToDo;
     $scope.todo = {
-        quote: false,
-        fav: false
+        request: false,
+        favorite: false
     }
 
-    $scope.loggedUser = localStorage.getItem('loggedUser') || 'false'
+    $scope.loggedUser = localStorage.getItem('loggedUser') || 'false';
 
     var profileId = $routeParams.profileId;
 
@@ -59,6 +60,21 @@ app.controller("profileCtrl", function ($scope, $http, usersService, $routeParam
         }).finally(function () {
             $scope.profile.recommends = recCount;
             $scope.profile.reports = repCount;
+        });
+    }
+
+    function addToDo(action) {
+        const toDoItem = {
+            "date": Date.now(),
+            "action": "",
+            "provider": $scope.profile.name,
+            "provider_id": profileId,
+            "user": localStorage.getItem('loggedUser'),
+            "satisfied": false
+        }
+        toDoItem.action = action;
+        $http.post(usersService.GET_API_PATH() + "users/todo", toDoItem).then(function (response) {
+            $scope.todo[action] = true;
         });
     }
 

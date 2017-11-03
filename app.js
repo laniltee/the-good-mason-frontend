@@ -20,5 +20,7 @@ app.config(function ($routeProvider, $locationProvider) {
         }).when("/profile/:profileId", {
             templateUrl: "views/profile.html",
             controller: "profileCtrl"
+        }).when("/faq", {
+            templateUrl: "views/faq.html",
         });
 });

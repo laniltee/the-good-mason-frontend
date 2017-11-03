@@ -11,6 +11,7 @@ app.controller("homeCtrl", function ($scope, $http, usersService) {
     $scope.searchByName = searchByName;
 
     loadCategories();
+    animateStats();
 
     function loadCategories() {
         $http.get(usersService.GET_API_PATH() + "providers/search/categories/").then(function (response) {
@@ -53,6 +54,10 @@ app.controller("homeCtrl", function ($scope, $http, usersService) {
         setTimeout(function () {
             window.location.href = "#/search/name/" + $scope.searchName;
         }, 1500);
+    }
+
+    function animateStats() {
+        $('.statistic').addClass('animated fadeIn');
     }
 
 });

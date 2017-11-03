@@ -7,6 +7,8 @@ app.controller("registerCtrl", function ($scope, $routeParams, $http, usersServi
     $scope.formErrors = [];
     $scope.User = {}
 
+    $scope.registration = true;
+
     var users = [];
     loadAvailableUsers();
 

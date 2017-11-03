@@ -1,5 +1,5 @@
 <div class="ui center aligned container animated bounce">
-    <img src="images/saw.png">
+    <img src="images/engineer.png">
     <h1 class="ui header">{{profile.name}}</h1>
     <br>
     <div class="ui compact menu">
@@ -60,13 +60,13 @@
             <h3 class="ui dividing header">To Do
 
             </h3>
-            <button class="ui {{todo.quote ? 'disabled' : ''}} basic button" ng-click="todo.quote = true">
+            <button ng-click="addToDo('request')" class="ui {{todo.request ? 'disabled' : ''}} basic button" ng-click="todo.quote = true">
                 <i class="icon teal money"></i>
-                {{todo.quote ? 'Requested' : 'Request Price Quote'}}
+                {{todo.request ? 'Requested' : 'Request Price Quote'}}
             </button>
-            <button class="ui {{todo.fav ? 'disabled' : ''}} basic button" ng-click="todo.fav = true">
+            <button ng-click="addToDo('favorite')" class="ui {{todo.favorite ? 'disabled' : ''}} basic button" ng-click="todo.fav = true">
                 <i class="icon heart red"></i>
-                {{todo.fav ? 'Added To Favorites' : 'Add To Favorites'}}
+                {{todo.favorite ? 'Added To Favorites' : 'Add To Favorites'}}
             </button>
         </div>
         <div style="margin-top: 14px">
