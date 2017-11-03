@@ -9,6 +9,7 @@ app.controller("userCtrl", function ($scope, $http, usersService, $route) {
     $scope.requests = [];
     $scope.favorites = [];
     $scope.removeComment = removeComment;
+    $scope.removeRequest = removeRequest;
     $scope.registration = false;
 
     $http.get(usersService.GET_API_PATH() + "users/" + loggedUserEmail).then(function (response) {
@@ -61,9 +62,19 @@ app.controller("userCtrl", function ($scope, $http, usersService, $route) {
         });
     }
 
-    function removeComment(id){
-        if(confirm("Are you sure to remove comment ?")){
+    function removeComment(id) {
+        if (confirm("Are you sure to remove comment ?")) {
+            $http.delete(usersService.GET_API_PATH() + 'providers/comments_user/' + id).then(function (response) {
+                loadUserComments();
+            });
+        }
+    }
 
+    function removeRequest(id) {
+        if (confirm("Are you sure to cancel this re request ?")) {
+            $http.delete(usersService.GET_API_PATH() + 'users/find_todo/' + id).then(function (response) {
+                loadUserRequests();
+            });
         }
     }
 

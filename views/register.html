@@ -113,7 +113,7 @@
                     </td>
                     <td>{{comment.satisfied ? 'Available': 'Pending'}}</td>
                     <td>
-                        <button class="negative ui mini button" ng-click="removeComment(comment._id)"> Remove</button>
+                        <button class="negative ui mini button" ng-click="removeRequest(comment._id)"> Cancel</button>
                         <button class="positive {{comment.satisfied ? '': 'disabled'}} ui mini button" ng-click="removeComment(comment._id)"> View Quote</button>
                     </td>
                 </tr>
@@ -129,7 +129,7 @@
                 </div>
                 <img class="ui avatar image" src="../images/daniel.jpg">
                 <div class="content">
-                    <a href="#profile/{{comment.provider}}" class="header">{{fav.provider}}</a>
+                    <a href="#profile/{{fav.provider_id}}" class="header">{{fav.provider}}</a>
                 </div>
             </div>
         </div>

@@ -48,7 +48,7 @@
             <div class="ui steps" style="margin-bottom: 14px">
                 <div class="step">
                     <div class="floating ui red label">{{profile.rate}}</div>
-                    <i class="truck icon"></i>
+                    <i class="dollar green icon"></i>
                     <div class="content">
                         <div class="title">{{profile.service}}</div>
                         <div class="description">{{profile.rate}} LKR per {{profile.unit}}</div>
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div ng-if="loggedUser != 'false'">
             <h3 class="ui dividing header">To Do
 
             </h3>

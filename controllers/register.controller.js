@@ -6,7 +6,7 @@ app.controller("registerCtrl", function ($scope, $routeParams, $http, usersServi
     $scope.userRegistered = false;
     $scope.formErrors = [];
     $scope.User = {}
-
+    $scope.removeRequest = removeRequest;
     $scope.registration = true;
 
     var users = [];
