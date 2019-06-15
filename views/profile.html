@@ -1,0 +1,119 @@
+<div class="ui center aligned container animated bounce">
+    <img src="images/engineer.png">
+    <h1 class="ui header">{{profile.name}}</h1>
+    <br>
+    <div class="ui compact menu">
+        <a class="item">
+            <i class="icon pointing up"></i> Recommends
+            <div class="floating ui red label">{{profile.recommends}}</div>
+        </a>
+        <a class="item">
+            <i class="icon pointing down"></i> Reports
+            <div class="floating ui teal label">{{profile.reports}}</div>
+        </a>
+    </div>
+
+    <h1></h1>
+</div>
+<div class="ui text container">
+    <div>
+        <div>
+            <h3 class="ui dividing header">Information
+
+            </h3>
+            <table class="ui single line table" style="margin-bottom: 14px">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Contact Number</th>
+                        <th>Location</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{profile.name}}</td>
+                        <td>{{profile.contact}}</td>
+                        <td>{{profile.location}}</td>
+                        <td>{{profile.address}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3 class="ui dividing header">Services
+
+            </h3>
+            <div class="ui steps" style="margin-bottom: 14px">
+                <div class="step">
+                    <div class="floating ui red label">{{profile.rate}}</div>
+                    <i class="dollar green icon"></i>
+                    <div class="content">
+                        <div class="title">{{profile.service}}</div>
+                        <div class="description">{{profile.rate}} LKR per {{profile.unit}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="loggedUser != 'false'">
+            <h3 class="ui dividing header">To Do
+
+            </h3>
+            <button ng-click="addToDo('request')" class="ui {{todo.request ? 'disabled' : ''}} basic button" ng-click="todo.quote = true">
+                <i class="icon teal money"></i>
+                {{todo.request ? 'Requested' : 'Request Price Quote'}}
+            </button>
+            <button ng-click="addToDo('favorite')" class="ui {{todo.favorite ? 'disabled' : ''}} basic button" ng-click="todo.fav = true">
+                <i class="icon heart red"></i>
+                {{todo.favorite ? 'Added To Favorites' : 'Add To Favorites'}}
+            </button>
+        </div>
+        <div style="margin-top: 14px">
+            <h3 class="ui dividing header">Compare
+
+            </h3>
+            <a href="#profile/{{comp._id}}" ng-repeat="comp in competitors">
+                <div class="ui image label" ng-if="comp._id != profile._id" style="margin-left: 30px">
+                    <img src="../images/usersearch.png"> {{comp.name}}
+                    <div class="detail">{{comp.rate}}</div>
+                </div>
+            </a>
+            <div ng-if="competitors.length == 0" class="ui green message">Oh No Competitors</div>
+
+        </div>
+    </div>
+    <div class="ui comments">
+        <h3 class="ui dividing header">Comments
+            <a class="ui blue circular label">{{comments.length}}</a>
+        </h3>
+        <div class="comment" ng-repeat="comment in comments" ng-if="comment.comment">
+            <a class="avatar">
+                <img src="images/matt.jpg">
+            </a>
+            <div class="content">
+                <a class="author">{{comment.user}}</a>
+                <div class="metadata">
+                    <span class="date">{{comment.date | date : "dd-MM-yyyy"}}</span>
+                </div>
+                <div class="text">
+                    {{comment.comment}}
+                </div>
+                <div class="actions" ng-if="comment.user == loggedUser">
+                    <a class="reply">Remove</a>
+                </div>
+            </div>
+        </div>
+        <form class="ui reply form">
+            <div class="field">
+                <textarea ng-model="comment.comment" rows="2"></textarea>
+            </div>
+            <div class="ui buttons">
+                <button ng-click="comment.rating = 'Report';postComment()" class="ui {{loggedUser == 'false' ? 'disabled': ''}} button">Comment & Report</button>
+                <div class="or"></div>
+                <button ng-click="comment.rating = 'Recommend';postComment()" class="ui {{loggedUser == 'false' ? 'disabled': ''}} positive button">Comment & Recommend</button>
+            </div>
+            <div ng-if="loggedUser == 'false'" class="ui brown message">You have to log in before giving a comment. Please visit our log in page</div>
+        </form>
+    </div>
+</div>

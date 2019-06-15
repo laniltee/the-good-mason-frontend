@@ -1,7 +1,23 @@
-<div class="ui grid">
-  <div class="four wide column"></div>
-  <div class="four wide column"></div>
-  <div class="four wide column"></div>
-  <div class="four wide column"></div>
-
+<div class="ui center aligned container animated bounce">
+    <img src="images/search.png">
+    <h1 class="ui header">Search Results</h1>
+    <p>See whether people you need are here</p>
+    <h1></h1>
+</div>
+<div class="ui text container">
+    <div ng-if="searchResults.length == 0" class="ui brown message">There are no results</div>
+    <div class="ui large celled animated list">
+        <div class="item" ng-repeat="result in searchResults">
+            <img class="ui image" src="images/usersearch.png">
+            <div class="content">
+                <div class="header">{{result.name}}</div>
+                {{searchMethod == "category" ? result.location : result.service}}
+            </div>
+            <div class="right floated content">
+                <a href="#/profile/{{result._id}}">
+                    <div class="ui button">View</div>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,6 +1,6 @@
 var app = angular.module("myApp", ["ngRoute"]);
 
-app.config(function($routeProvider, $locationProvider) {
+app.config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
     $routeProvider
         .when("/", {
@@ -13,9 +13,14 @@ app.config(function($routeProvider, $locationProvider) {
         })
         .when("/user", {
             templateUrl: "views/register.html",
-            controller: "registerCtrl"
-        }).when("/search", {
+            controller: "userCtrl"
+        }).when("/search/:level/:query", {
             templateUrl: "views/search.html",
             controller: "searchCtrl"
+        }).when("/profile/:profileId", {
+            templateUrl: "views/profile.html",
+            controller: "profileCtrl"
+        }).when("/faq", {
+            templateUrl: "views/faq.html",
         });
 });
